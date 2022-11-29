@@ -25,7 +25,18 @@ console.log(timeoutObject); // Timeout { ... }
 ***********************************************************************/
 
 function dynamicIntervalCount(cb, delay, amount) {
-  // Your code here
+  
+  const interval = setInterval(() => {
+    cb();
+    amount--;
+
+    if (amount === 0) {
+      clearInterval(interval);
+    }
+
+  }, delay)
+
+  return interval;
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
